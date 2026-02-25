@@ -1,0 +1,21 @@
+Start
+Set right to n //sets the pointer from the right to the number of checkers
+Set left to 1 //sets the pointer from the left at one
+
+While right is more than left 
+	If examine(left) checker is red 
+		left:= left plus 1 // moves left pointer inwards, or to the right onto the next checker if the checker examined is red
+	Else if examine(right) checker is white
+		right := right minus 1 // moves right pointer inwards, or to the left onto the next checker if the checker examined is white
+	Else
+		Swap(left, right)
+		left:= left plus 1
+		right := right minus 1 
+		// If the right pointer points to a red checker, and the left pointer points to a white checker, then swap their positions and then move both counters inwards		
+		
+
+
+	
+	
+
+

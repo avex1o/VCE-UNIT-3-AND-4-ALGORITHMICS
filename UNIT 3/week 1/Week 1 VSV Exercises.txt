@@ -1,0 +1,46 @@
+E1:
+-Sweet
+-Colour
+-Pink
+-Green
+-Else
+-Purple
+-Then
+-Orange
+-Else if colour = yellow
+Then place in the yellow bucket
+-While
+
+E2:
+Begin sorting
+Set total sweets count to zero
+Set Pink, Green, Purple, Orange, Yellow counts to zero
+Grab sweet
+Check sweet colour
+If colour = pink
+	Then place in the pink bucket
+	total: total + 1
+	pink: pink + 1
+Else if colour = green
+	Then place in the green bucket
+	total: total + 1
+	green: green + 1
+Else if colour = purple
+	Then place in the purple bucket
+	total: total + 1
+	purple: purple + 1
+Else if colour = orange
+	Then place in the orange bucket
+	total: total + 1
+	orange: orange + 1
+Else if colour = yellow
+	Then place in the yellow bucket
+	total: total + 1
+	yellow: yellow + 1
+End while
+return total
+End sorting
+
+
+E3:
+8/10 Because I get confused with syntax a lot, especially if I'm thinking about WHAT the program will actually do, plus how I will structure my code. If I do pseudocode first, I can just focus on getting my syntax right.

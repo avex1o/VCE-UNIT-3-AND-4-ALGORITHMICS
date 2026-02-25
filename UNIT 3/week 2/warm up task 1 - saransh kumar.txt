@@ -1,0 +1,29 @@
+import math
+import random
+
+num = input("Enter number (0 or above!): ") # The user inputs a number 
+largestPower = 0 # This will be the counter for how many powers can go inside the input number
+
+if 2 == float(num):
+    largestPower = largestPower + 1 
+    print (largestPower)
+
+elif float(num) == 1:
+    print(largestPower)
+
+#The two blocks of code above account for what happens if 1 or 2 is the input, and outputs the largest power respectively.
+
+# This code below only executes if the number is not 2, and while the number is equal or greater than 2, 
+# The number will get divided by 2, and the power counter will be increased by 1 each time this happens, until the number drops below 2,
+# Then, the largest power that can go inside the number will be printed.
+
+elif float(num) != 2:
+    while float(num) >= 2:
+        num = float(num) / 2
+        largestPower = largestPower + 1
+    print(f"The largest power of 2 that goes into the input number is {largestPower}.")  
+
+
+
+
+
