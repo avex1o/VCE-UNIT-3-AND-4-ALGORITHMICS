@@ -1,0 +1,16 @@
+Q1: You would use an undirected graph to create "connections" between two users, where the users are nodes and the connections are edges. When two people accept each other as friends, a new edge is created between them.
+
+Q2: You would use a digraph. If there is someone online who a big internet personality, they would obviously not follow random people back. Their in-degree would be quite high while their out-degree would be quite low, where an edge going out represents you following someone, and an in-degree represents someone else following you. If two people are following each other (and both the users are represented as nodes), two edges would be formed between them, going in separate directions. 
+
+Q3: We could use an acyclic connected digraph. For example: Producing and shipping canned fruit. You could have 3 separate starting nodes for the processes independant of each other, such as recieving and slicing fruit, producing the syrup, and producing the cans with their labels. Once all three of these processes are done, you will have the fruits, syrup, and labelled cans all ready to put together and package. After that you can continue and ship the fruit. The key is to know how to separate the tasks which are indepandant of each other for more efficiency. 
+
+Q4: Eulerian path. The network must have either no vertices with an odd degree, or only 2 vertices with an odd degree for this to be possible.
+
+Q5: Yes, you can represent every undirected graph as a digraph by replacing all edges with two edges between nodes going in opposite directions. The opposite can also happen as well, but you may lose information if done so, as two digraphs with the same nodes and edges, but different edges directions are different digraphs entirely, but by removing the edge directions, they become the same graph. Depending on what the original digraph represented, lots of information may be lost. 
+
+Q6: No, not necessarily If you include every edge with the smallest weight, a cycle might be created, which isn't allowed in a minimum spanning tree, or any kind of tree for that matter.
+Example: if A - B weight is 1, B - C weight is 1, and A - C weight is also 1, including all three edges would give you a cycle: A - B - C - A. Hence, you only have to include the smallest number of edges needed to connect the nodes without forming a cycle.
+
+Q7: No, as the number of edges in a spanning tree (S) is always the minimum number of edges needed to traverse all nodes of graph (G), without returning to the starting node, assuming the spanning tree in question is a minimum spanning tree.
+If an edge is added, the spanning tree will just turn into a graph of a path where all nodes of G are traversed without returning to the starting node.
+A spanning tree would also fit this definition, but because this new graph no longer has the minimum number of edges needed to traverse all nodes of G, it would be referred to as a regular graph.
