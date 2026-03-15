@@ -1,0 +1,10 @@
+(1,5), (1,3), (3,6), (6,2), (2,4), (4,9), (9,8), (1,0)
+Weight = 3 + 5 + 9 + 7 + 5 + 2 + 2 + 6 = 39
+
+Q1: A priority queue could be used in Prim's by ordering nodes outside of the MST by their minimum edge weight to any node already in the MST. We would store those nodes out of the MST in the priority queue. This makes Prim's more efficient because instead of having to individually go through each node and its corresponding minimum edge weight and then choosing from those nodes, we could instantly go to the next node as we already know the lowest cost edge and which node it goes to thanks to the priority queue.
+
+Q2: Another edge, e2 has the exact same weight as edge e1, and including edge e1 will create a cycle. Hence, an edge with the smallest weight will not appear in the resulting MST.
+
+Q3: It is 'greedy' because the algorithm will immediately always select the minimum cost edge coming from a node regardless of if the path may later go into a cycle, because it always looks for the best possible choice in that moment step by step, which is the lowest cost edge which won't immediately form a cycle if we add it to our MST,
+
+Q4: Yes, because Prim's algorithm works by looking for the minimum cost edge emanating from a node, and adds it to a tree (the MST). A negative edge does not interfere with this process, and when adding up edge weights, you would simply subtract the value of that weight in your calculations. They would simply be treated desirable/very low cost edges.
