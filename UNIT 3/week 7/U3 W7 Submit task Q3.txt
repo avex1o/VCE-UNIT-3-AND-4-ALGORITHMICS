@@ -1,0 +1,21 @@
+Dijkstra's Algorithm
+// Initialise all nodes (v) in graph G 
+For each node V in graph G do
+    set distance of V from the source node as infinity
+    add V to unvisitedList
+    set predecessor of V as undefined 
+End do
+
+set distance from u to itself as 0
+
+While unvisited list is not empty do
+    V := vertex in unvisistedList with minimum distance[V]
+    remove V from unvisitedList
+    for each neighbour N of V do
+        pathDistance := distance[N] plus weight(V,N)
+        if pathDistance is less than distance[N]
+            set distance[N] to pathDistance
+            set predecessor of N to V
+        end if
+    end do
+end do
