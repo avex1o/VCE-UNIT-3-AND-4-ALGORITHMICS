@@ -9,4 +9,4 @@ o	As close to T as possible, as we want as many orbs as we can get without going
 •	P will be used to sort each zone in a maximum priority queue, so we can start finding the MST’s (well not really minimum because for some zones we might have to pick larger weights) of each zone in descending order.
 
 
-Combination will be of FW and BFS algorithm, where we run a combination of this algorithm on a Zone ADT. Most likely will run 
+Combination will be of FW and BFS algorithm, where we run a combination of this algorithm on a Zone ADT. Most likely will run standard FW but will check for the heuristic function instead.
