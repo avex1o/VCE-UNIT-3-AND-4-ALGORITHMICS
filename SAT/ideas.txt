@@ -1,0 +1,12 @@
+Ideas so far/Draft (will expand on these):
+•	Will use graph ADT (undirected), custom  ‘Zone’ ADT.
+•	Total time limit (T) = y hours, radius of a node N (R) = x (R will be same for all nodes) km
+•	Zone = all nodes within R (if distance to node is less than R then it is within R in this model) , and average rate (P)  at which orbs will be collected per minute (yes mins not hrs) =  T of R (total time taken to collect all orbs without restrictions= total weight of all edges in R that lead to  nodes within R plus the time taken to fully collect orbs at all nodes in R). Disclaimer: P will ONLY has one purpose will be explained in a later point.
+•	We may have to partially collect orbs from a node and use that amount to figure out how much time it will take to collect that partial amount (e.g. if there are 30 orbs at location X and it takes 1 hour to collect, if we collect 10 orbs from location X, it will take 20 minutes [33.3 % of original time] to collect this amount.). 
+•	Our normal algorithms like Prims or Dijkstra’s may not work here (will need to state/explain the algorithms and evaluate why they wont be effective for my model), will have to try and make a modified/custom algorithm that creates an ST of of each zone with total time (of both edges and nodes) to be:
+o	Equal or less than T
+o	As close to T as possible, as we want as many orbs as we can get without going over the time limit.
+•	P will be used to sort each zone in a maximum priority queue, so we can start finding the MST’s (well not really minimum because for some zones we might have to pick larger weights) of each zone in descending order.
+
+
+Combination will be of FW and BFS algorithm, where we run a combination of this algorithm on a Zone ADT. Most likely will run 
