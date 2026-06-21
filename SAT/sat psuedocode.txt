@@ -1,0 +1,89 @@
+// Floyd-Warshall's Algorithm 
+Define FloydWarshall(Graph = {V,E,w})
+  // Initialise distance matrix of |V| x |V|
+  for each node i in V
+    for each node j in V
+
+      if i = j then
+        distance[i,j] := 0
+      else if edge(i,j) exists then
+        distance [i,j] := w(i,j) // Sets distance to edge weight if direct edge exists
+      else
+        distance[i,j] := infinity
+      end if 
+    end do
+  end do
+
+// Build matrix of shortest paths
+  for k from 1 to |V| do
+      for i from 1 to |V| do
+        for j from 1 to |V| do
+          if distance[i,j] > distance[i,k] + distance[k,j] then
+            // it is cheaper to go to j from i via k
+            distance[i,j] := distance[i,k] + distance[k,j]
+          end if
+        End do
+      End do
+    End do
+  return distance
+end function
+
+// generating zone algorithm (matrix used will be the one returned from FW)
+Define makeZone (Graph, centerNode, radius, matrix)
+  zoneNodes := []
+  zone := (zoneNodes, centerNode) // centerNode is there to help identify which node the radius came from
+
+  for each node in Graph do
+    // checks if node is within radius via fetching shortest path from center node to node
+    if matrix[centerNode, node] <= radius then 
+      add node to zoneNodes
+    end if
+  end do
+  return zone
+end function
+
+Define heuristicFunction(node, travelTime)
+  // Initialising variables by fetching from node 
+  orbsAmt := get orb yield from node 
+  harvestTime := get time from node 
+  connectivity := get length of unvisited neighbours from node 
+  
+  harvestRate := orbsAmt / harvestTime
+  
+  // heuristic will use this score to judge paths
+  score := (harvestRate * connectivity) / (travelTime + harvestTime) 
+
+  return score
+end function
+
+Define SelectBestNeighbour(neighbours, node, remainingTime)
+  scoreBoundary := negative infinity
+  nodePicked := null
+  // iterates through all neighbours and compares their scores to one another
+  for each neighbour do 
+    travelTime := edgeWeight(node, neighbour) 
+    // checks if the node has been fully harvested and also if there is enough time to consider it
+    if neighbour orb yield > 0 and travelTime <= remainingTime then 
+      score := heuristicFunction(neighbour, travelTime)
+      if score > scoreBoundary then 
+        nodePicked := neighbour // updates best neighbour
+        scoreBoundary := score
+      end if
+    end if 
+  end do
+  return nodePicked
+end function
+
+matrix := FloydWarshall(Graph)
+zone := makeZone(Graph, centerNode, radius, matrix)
+
+Algorithm OptimalOrbRoute(remainingTime, zone, startNode)
+  currentNode := startNode
+  route := []
+  totalYield := 0
+  traversalStack := []
+
+  add currentNode to route
+  push currentNode to traversalStack
+
+  while remainingTime
