@@ -105,8 +105,8 @@ class Graph:
   
     for edge in self.edges: #O(n)
       if edge.place1 == place1 and edge.place2 == place2:
-        return edge.dist
-      if edge.place1 == place2 and edge.place2 == place1:
+        return edge.dist 
+      if edge.place1 == place2 and edge.place2 == place1:  
         return edge.dist
     return -1
 
@@ -119,7 +119,7 @@ class Graph:
     G = nx.Graph()
     node_colour_list = []
     for node in self.nodes: #O(n)
-      G.add_node(node.name, pos=(node.long, node.lat))
+      G.add_node(node.name, pos=(node.long, node.lat))  
       node_colour_list.append(self.colour_dict[node.colour])
     for edge in self.edges: #O(n)
       G.add_edge(edge.place1, edge.place2)
