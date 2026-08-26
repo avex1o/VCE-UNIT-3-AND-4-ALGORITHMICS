@@ -1,5 +1,11 @@
-import math
+import networkx as nx
+import matplotlib.pyplot as plt
+import csv
 import random
+import math
+from itertools import permutations
+import itertools
+
 
 # Objective function: Rastrigin function
 def objective_function(x):
@@ -51,11 +57,20 @@ best, score, scores = simulated_annealing(objective_function, bounds, n_iteratio
 print(f'Best Solution: {best}')
 print(f'Best Score: {score}')
 
-
-
-
 # define generateCandidate (route) 
 # 
 # make an empty variable to store the rerouted node 
 # reroute node to any one of its neighbours with a random chance equally on each neighbour and assign it to the variable 
 # after node is rerouted recursively run function on the variable aka node we rerouted to
+
+
+neighbours = {
+    "Shepparton": ["NodeA", "NodeB", "NodeC"],
+    "NodeA": ["Shepparton", "NodeD"],
+    "NodeB": ["Shepparton", "NodeE"],
+    "NodeC": ["Shepparton", "NodeF"],
+    "NodeD": ["NodeA"],
+    "NodeE": ["NodeB"],
+    "NodeF": ["NodeC"]
+}
+
