@@ -50,3 +50,50 @@ best, score, scores = simulated_annealing(objective_function, bounds, n_iteratio
 
 print(f'Best Solution: {best}')
 print(f'Best Score: {score}')
+
+
+
+
+
+
+
+# define generateCandidate (route)
+#       
+#       make an empty variable to store the rerouted node
+#       reroute node to any one of its neighbours with a random chance equally on each neighbour and assign it to the variable
+#       after node is rerouted recursively run function on the variable aka node we rerouted to
+#       
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
