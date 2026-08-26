@@ -162,7 +162,7 @@ class Graph:
 
       return distance
 
-
+  
  #
  #
  #
@@ -175,3 +175,18 @@ class Graph:
  
 
 #Start
+  def mineroute(self,target,radius,maxtime): 
+  
+  # Look up lat and long of target
+    for node in self.nodes: #O(n)
+      if node.name == target:
+        tlat = node.lat
+        tlong = node.long
+    # First find all towns within the radius
+    to_mine = []
+    for node in self.nodes: #O(n)
+      if self.haversine(tlat, tlong, node.lat, node.long) <= radius:
+        to_mine.append(node.name) 
+
+    print(f"Mining towns: {to_mine}") 
+
