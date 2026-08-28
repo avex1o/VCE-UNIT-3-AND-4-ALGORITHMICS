@@ -294,5 +294,5 @@ original.load_data()
 
 original.display()
 
-# Find the best route within 80km of Shepparton with a max time of 299.
-original.mineroute("Shepparton", 80,299)
+# Find the best route within 100km of Shepparton with a max time of 299.
+original.mineroute("Shepparton", 100,299)
